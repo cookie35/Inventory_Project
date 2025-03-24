@@ -27,7 +27,7 @@ public class ItemDataEquipable
 public class ItemData : ScriptableObject
 {
     [Header("Info")]
-    public string itemName;
+    public string displayName;
     public string description;
     public ItemType type;
     public Sprite icon;

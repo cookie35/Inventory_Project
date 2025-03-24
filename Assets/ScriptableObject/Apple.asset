@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e961430b1db50e43a652e52bad9dee5, type: 3}
   m_Name: Apple
   m_EditorClassIdentifier: 
-  itemName: "\uC0AC\uACFC"
-  description: "\uCCB4\uB825\uC744 \uD68C\uBCF5\uD569\uB2C8\uB2E4."
+  displayName: 
+  description: "\uCCB4\uB825 +10"
   type: 2
   icon: {fileID: 725460530, guid: 1541c9e818ab4a049b273d0e6c1b44b2, type: 3}
-  equipables: []
+  equipables:
+  - type: 0
+    value: 0

@@ -6,15 +6,30 @@ using UnityEngine.UI;
 
 public class ItemSlot : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public ItemData item;
+
+    public UiInventory inventory;
+    public Button button;
+    public Image icon;
+    public Outline outline;
+
+    public int index;
+    public bool equipped;
+    public int quantity;
+
+    private void Awake()
     {
-        
+        outline = GetComponent<Outline>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-        
+        outline.enabled = equipped;
     }
+
+    public void Set()
+    {
+
+    }
+
 }
