@@ -3774,6 +3774,8 @@ MonoBehaviour:
   bonusShield: 0
   bonusCriticalHit: 0
   bonusHealth: 0
+  status: {fileID: 286094711}
+  inventory: {fileID: 1153006862}
 --- !u!4 &990062987
 Transform:
   m_ObjectHideFlags: 0

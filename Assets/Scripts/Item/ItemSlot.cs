@@ -62,12 +62,13 @@ public class ItemSlot : MonoBehaviour
         {
             if (nowItem.isEquipped)
             {
-                character.UnEquip(); // 장착 해제
-                nowItem = null;
+                character.UnEquip(nowItem); // 장착 해제
+                nowItem.isEquipped = false;
             }
             else
             {
                 character.Equip(nowItem); // 장착 요청
+                nowItem.isEquipped = true;
                 status.UpdateStatus(nowItem, character);
             }
         }

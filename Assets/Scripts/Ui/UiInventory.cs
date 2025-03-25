@@ -68,5 +68,4 @@ public class UiInventory : MonoBehaviour
         slotCountTxt.text = $"{filledSlotCount}/{initialSlotCount}";
     }
 
-
 }
