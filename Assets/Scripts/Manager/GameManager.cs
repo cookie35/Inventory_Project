@@ -28,7 +28,14 @@ public class GameManager : MonoBehaviour
 
     private void SetData()  // 초기값 설정
     {
-        character = new Character("멘탈터진 신입 개발자", 1, 10000, 10, 5, 100, 5);
+        // character = new Character("멘탈터진 신입 개발자", 1, 10000, 10, 5, 100, 5);
+        character.id = "멘탈터진 신입 개발자";
+        character.level = 1;
+        character.gold = 10000;
+        character.baseAttack = 10;
+        character.baseShield = 5;
+        character.baseHealth = 100;
+        character.baseCriticalHit = 10;
 
         if (UiManager.Instance == null)
         {

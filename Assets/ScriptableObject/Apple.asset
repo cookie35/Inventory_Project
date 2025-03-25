@@ -15,11 +15,10 @@ MonoBehaviour:
   displayName: "\uC0AC\uACFC"
   description: "\uCCB4\uB825 +10"
   equipDescription: 
-  type: 2
+  type: 1
   icon: {fileID: 725460530, guid: 1541c9e818ab4a049b273d0e6c1b44b2, type: 3}
-  dropPrefab: {fileID: 0}
   equipPrefab: {fileID: 0}
-  equipables:
+  equipables: []
+  consumables:
   - type: 0
-    value: 0
-  consumables: []
+    value: 50

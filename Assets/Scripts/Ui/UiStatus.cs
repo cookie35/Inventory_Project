@@ -1,5 +1,7 @@
+using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 
 public class UiStatus : MonoBehaviour
@@ -17,9 +19,17 @@ public class UiStatus : MonoBehaviour
 
     public void SetStatusInfo(Character character)
     {
-        attackNum.text = character.attack.ToString();
-        shieldNum.text = character.shield.ToString();
-        healthNum.text = character.health.ToString();
-        criticalHitNum.text = character.criticalHit.ToString();
+        attackNum.text = character.baseAttack.ToString();
+        shieldNum.text = character.baseShield.ToString();
+        healthNum.text = character.baseHealth.ToString();
+        criticalHitNum.text = character.baseCriticalHit.ToString();
+    }
+
+    internal void UpdateStatus(ItemInfo nowItem, Character character)
+    {
+        if (character.bonusAttack > 0) attackNum.text = $"{character.baseAttack.ToString()}" + " + " + $"{character.bonusAttack.ToString()}";
+        if (character.bonusShield > 0) shieldNum.text = $"{character.baseShield.ToString()}" + " + " + $"{character.bonusShield.ToString()}";
+        if (character.bonusHealth > 0) healthNum.text = $"{character.baseHealth.ToString()}" + " + " + $"{character.bonusHealth.ToString()}";
+        if (character.bonusCriticalHit > 0) criticalHitNum.text = $"{character.baseCriticalHit.ToString()}" + " + " + $"{character.bonusCriticalHit.ToString()}";
     }
 }

@@ -3267,6 +3267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiMainMenu: {fileID: 890575392}
   uiStatus: {fileID: 286094711}
+  uiInventory: {fileID: 1153006862}
   character: {fileID: 990062986}
 --- !u!4 &887580782
 Transform:
@@ -3765,6 +3766,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bae1bf31b82b6b84ba1847136c93b5c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseAttack: 0
+  baseShield: 0
+  baseCriticalHit: 0
+  baseHealth: 0
+  bonusAttack: 0
+  bonusShield: 0
+  bonusCriticalHit: 0
+  bonusHealth: 0
 --- !u!4 &990062987
 Transform:
   m_ObjectHideFlags: 0
@@ -4532,6 +4541,8 @@ MonoBehaviour:
   filledSlotCount: 0
   btnBack: {fileID: 520784641}
   character: {fileID: 990062986}
+  status: {fileID: 286094711}
+  inventory: {fileID: 1153006862}
 --- !u!1 &1219466135
 GameObject:
   m_ObjectHideFlags: 0

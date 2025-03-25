@@ -37,8 +37,6 @@ public class UiManager : MonoBehaviour
         uiMainMenu.SetActive(true);
         uiStatus.SetActive(true);
         uiInventory.SetActive(false);
-
-        uiStatus.GetComponent<UiStatus>().SetStatusInfo(GameManager.Instance.character);
     }
 
     public void ShowInventory()

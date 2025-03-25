@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,11 +11,13 @@ public class ItemSlot : MonoBehaviour
     [SerializeField] private Outline outline;
 
     public ItemInfo nowItem;
+    public UiInventory inventory;
     public Character character;
+    public UiStatus status;
 
     public void Start()
     {        
-        itemBtn.onClick.AddListener(EquipItem);
+        itemBtn.onClick.AddListener(UseItem);
         Init();
     }
 
@@ -30,7 +33,6 @@ public class ItemSlot : MonoBehaviour
     {
         nowItem = new ItemInfo();
         nowItem.targetItem = itemData;
-        nowItem.itemUpgradeNum = 0;  // 새 아이템의 경우 아직 강화횟수 없음
         nowItem.isEquipped = false;
         RefreshUI();
     }
@@ -45,25 +47,42 @@ public class ItemSlot : MonoBehaviour
             return;
         }
 
+        itemIcon.gameObject.SetActive(true);
         itemIcon.enabled = true;
         itemIcon.sprite = nowItem.targetItem.icon;
         equipMark.SetActive(nowItem.isEquipped);
         outline.enabled = nowItem.isEquipped;  
     }
 
-    public void EquipItem()
+    public void UseItem()
     {
         if (nowItem == null) return;
 
-        if (nowItem.isEquipped)
+        if (nowItem.IsEquipable())
         {
-            character.UnEquip(); // 장착 해제 
+            if (nowItem.isEquipped)
+            {
+                character.UnEquip(); // 장착 해제
+                nowItem = null;
+            }
+            else
+            {
+                character.Equip(nowItem); // 장착 요청
+                status.UpdateStatus(nowItem, character);
+            }
         }
-        else
+
+        if (nowItem.IsConsumable())
         {
-            character.Equip(nowItem); // 장착 요청
+            character.Heal(nowItem);
+            status.UpdateStatus(nowItem, character);  // 소비 아이템 사용 후 상태 업데이트
+
+            nowItem = null; // 아이템 소비 후 삭제
+            inventory.filledSlotCount--;
+            inventory.UpdateSlotCountTxt();
         }
 
         RefreshUI();
     }
+
 }
