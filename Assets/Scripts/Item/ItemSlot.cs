@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -6,11 +5,8 @@ using UnityEngine.UI;
 
 public class ItemSlot : MonoBehaviour
 {
-    public ItemData item;
-
-    public UiInventory inventory;
+    public Image itemIcon;
     public Button button;
-    public Image icon;
     public Outline outline;
 
     public int index;
@@ -29,7 +25,13 @@ public class ItemSlot : MonoBehaviour
 
     public void Set()
     {
+        itemIcon.gameObject.SetActive(true);
+    }
 
+
+    public void SetItem(ItemData item)
+    {
+        
     }
 
 }

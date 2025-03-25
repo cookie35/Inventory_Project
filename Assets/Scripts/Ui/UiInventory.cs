@@ -1,18 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UiInventory : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private TMP_Text currentCount;
+    [SerializeField] private Button btnBack;
+
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        btnBack.onClick.AddListener(() => UiManager.Instance.ShowMainMenu());   
     }
 }
