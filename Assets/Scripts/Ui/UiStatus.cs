@@ -25,11 +25,43 @@ public class UiStatus : MonoBehaviour
         criticalHitNum.text = character.baseCriticalHit.ToString();
     }
 
-    internal void UpdateStatus(ItemInfo nowItem, Character character)
+    public void UpdateStatus(ItemInfo nowItem, Character character)
     {
-        if (character.bonusAttack > 0) attackNum.text = $"{character.baseAttack.ToString()}" + " + " + $"{character.bonusAttack.ToString()}";
-        if (character.bonusShield > 0) shieldNum.text = $"{character.baseShield.ToString()}" + " + " + $"{character.bonusShield.ToString()}";
-        if (character.bonusHealth > 0) healthNum.text = $"{character.baseHealth.ToString()}" + " + " + $"{character.bonusHealth.ToString()}";
-        if (character.bonusCriticalHit > 0) criticalHitNum.text = $"{character.baseCriticalHit.ToString()}" + " + " + $"{character.bonusCriticalHit.ToString()}";
+        if (character.bonusAttack > 0)
+        {
+            attackNum.text = $"{character.baseAttack.ToString()}" + " + " + $"{character.bonusAttack.ToString()}";
+        } 
+        else
+        {
+            attackNum.text = character.baseAttack.ToString();
+        }
+
+        if (character.bonusShield > 0)
+        {
+            shieldNum.text = $"{character.baseShield.ToString()}" + " + " + $"{character.bonusShield.ToString()}";
+        }
+        else
+        {
+            shieldNum.text = character.baseShield.ToString();
+        }
+
+        if (character.bonusHealth > 0)
+        {
+            healthNum.text = $"{character.baseHealth.ToString()}" + " + " + $"{character.bonusHealth.ToString()}";
+        }
+        else
+        {
+            healthNum.text = character.baseHealth.ToString();
+        }
+
+        if (character.bonusCriticalHit > 0)
+        {
+            criticalHitNum.text = $"{character.baseCriticalHit.ToString()}" + " + " + $"{character.bonusCriticalHit.ToString()}";
+        }
+        else
+        {
+            criticalHitNum.text = character.baseCriticalHit.ToString();
+        }
+            
     }
 }

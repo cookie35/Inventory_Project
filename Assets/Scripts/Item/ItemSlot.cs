@@ -64,6 +64,7 @@ public class ItemSlot : MonoBehaviour
             {
                 character.UnEquip(nowItem); // ¿Â¬¯ «ÿ¡¶
                 nowItem.isEquipped = false;
+                status.UpdateStatus(nowItem, character);
             }
             else
             {
