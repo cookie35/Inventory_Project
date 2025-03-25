@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 // 캐릭터 정보 저장
@@ -24,4 +25,7 @@ public class Character : MonoBehaviour
         this.health = health;
         this.criticalHit = criticalHit;
     }
+
+    public List<ItemInfo> itemList { get; private set; }  // 아이템을 얻으면 이 리스트에 추가하게끔
+
 }

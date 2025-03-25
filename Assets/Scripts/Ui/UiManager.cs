@@ -10,7 +10,7 @@ public class UiManager : MonoBehaviour
     [SerializeField] private GameObject uiMainMenu;
     [SerializeField] private GameObject uiStatus;
     [SerializeField] private GameObject uiInventory;
-    [SerializeField] private GameObject uiItem;
+    [SerializeField] private GameObject itemName;
     [SerializeField] private GameObject uiMenu;
 
     private void Awake()

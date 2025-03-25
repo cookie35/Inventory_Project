@@ -1,10 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //public interface IIteractable
 //{
 //    public string GetInteractPrompt();
+//    public void SetOutline(bool show);
 //    public void OnInteract();
 //}
 
