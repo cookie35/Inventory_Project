@@ -9,7 +9,8 @@ public class ItemSlot : MonoBehaviour
     [SerializeField] private GameObject equipMark; // 장착 표시를 띄우는 오브젝트
     [SerializeField] private Outline outline;
 
-    public ItemInfo nowItem; 
+    public ItemInfo nowItem;
+    public Character character;
 
     public void Start()
     {        
@@ -25,9 +26,12 @@ public class ItemSlot : MonoBehaviour
 
     }
 
-    public void SetItem(ItemInfo target)  // 아이템을 슬롯에 추가
+    public void SetItem(ItemData itemData)  // 아이템을 슬롯에 추가
     {
-        nowItem = target;
+        nowItem = new ItemInfo();
+        nowItem.targetItem = itemData;
+        nowItem.itemUpgradeNum = 0;  // 새 아이템의 경우 아직 강화횟수 없음
+        nowItem.isEquipped = false;
         RefreshUI();
     }
 
@@ -51,8 +55,14 @@ public class ItemSlot : MonoBehaviour
     {
         if (nowItem == null) return;
 
-        // 장착하는 과정 
-        // isEquipped true
+        if (nowItem.isEquipped)
+        {
+            character.UnEquip(); // 장착 해제 
+        }
+        else
+        {
+            character.Equip(nowItem); // 장착 요청
+        }
 
         RefreshUI();
     }

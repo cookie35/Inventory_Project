@@ -2,19 +2,20 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 
 public class UiInventory : MonoBehaviour
 {
     [SerializeField] private Transform contentParent; // scrollview의 content 연결
     [SerializeField] private GameObject itemSlotPrefab; // 슬롯 프리팹
     [SerializeField] private int initialSlotCount = 20;  // 초기 생성되는 슬롯의 개수
+    [SerializeField] private TMP_Text slotCountTxt;  // 슬롯에 들어간 아이템의 숫자
 
     [SerializeField] private List<ItemSlot> newItemSlotList = new List<ItemSlot>(); // 생성될 슬롯 리스트
     [SerializeField] private int filledSlotCount = 0; // 아이템이 들어간 슬롯
-    [SerializeField] private TMP_Text slotCountTxt;  // 슬롯에 들어간 아이템의 숫자
 
     [SerializeField] private Button btnBack;
+
+    public Character character;
 
     void Start()
     {
@@ -37,9 +38,10 @@ public class UiInventory : MonoBehaviour
         newSlot.transform.SetParent(contentParent);
         ItemSlot slotScript = newSlot.GetComponent<ItemSlot>(); 
         newItemSlotList.Add(slotScript); // slot을 list에 추가
+        slotScript.character = character;
     }
 
-    public void AddItemToSlot(ItemData itemData)
+    public void AddItemToSlot(ItemData itemData)  // 빈 슬롯에 아이템 추가
     {
         if (filledSlotCount >= initialSlotCount)
         {

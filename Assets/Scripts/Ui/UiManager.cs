@@ -1,4 +1,3 @@
-using UnityEditor.Search;
 using UnityEngine;
 
 // Ui 전환해주는 역할
@@ -49,8 +48,4 @@ public class UiManager : MonoBehaviour
         uiInventory.SetActive(true);
     }
 
-    public void ShowItemInfo(ItemData itemData)
-    {
-
-    }
 }

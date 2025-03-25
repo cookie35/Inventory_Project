@@ -10,7 +10,6 @@ public class UiStatus : MonoBehaviour
     [SerializeField] private TMP_Text criticalHitNum;
     [SerializeField] private Button backBtn;
 
-    // Start is called before the first frame update
     private void Start()
     {
         backBtn.onClick.AddListener(() => UiManager.Instance.ShowMainMenu());
@@ -23,5 +22,4 @@ public class UiStatus : MonoBehaviour
         healthNum.text = character.health.ToString();
         criticalHitNum.text = character.criticalHit.ToString();
     }
-
 }

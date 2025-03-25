@@ -2480,7 +2480,7 @@ MonoBehaviour:
     m_Right: 10
     m_Top: 10
     m_Bottom: 10
-  m_ChildAlignment: 4
+  m_ChildAlignment: 0
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
@@ -3267,7 +3267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiMainMenu: {fileID: 890575392}
   uiStatus: {fileID: 286094711}
-  character: {fileID: 0}
+  character: {fileID: 990062986}
 --- !u!4 &887580782
 Transform:
   m_ObjectHideFlags: 0
@@ -4527,10 +4527,11 @@ MonoBehaviour:
   contentParent: {fileID: 1809647959}
   itemSlotPrefab: {fileID: 6929558116239648975, guid: b9bee8ae6899f7240abfa531d8c00838, type: 3}
   initialSlotCount: 20
+  slotCountTxt: {fileID: 1251284484}
   newItemSlotList: []
   filledSlotCount: 0
-  slotCountTxt: {fileID: 1251284484}
   btnBack: {fileID: 520784641}
+  character: {fileID: 990062986}
 --- !u!1 &1219466135
 GameObject:
   m_ObjectHideFlags: 0

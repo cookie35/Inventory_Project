@@ -25,7 +25,6 @@ public class ItemButton : MonoBehaviour
     {
         if (itemData == null) return;
 
-        //itemSlot.SetItem(itemData);
         uiInventory.AddItemToSlot(itemData);
     }
 

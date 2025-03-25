@@ -1,12 +1,11 @@
 using UnityEngine;
 
-// UiManager와 Character를 연결
-
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public UiMainMenu uiMainMenu;
     public UiStatus uiStatus;
+    public UiInventory uiInventory;
     public Character character;
 
     private void Awake()
