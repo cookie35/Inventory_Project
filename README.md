@@ -6,9 +6,9 @@
 > 메인 메뉴, 상태(Status) 화면, 인벤토리(Inventory) 화면, UI 간 전환 기능 등을 구현
 
 ## 주요 기능
-메인 화면
+메인 화면  
 ![image](https://github.com/user-attachments/assets/0c2d9780-1c6d-4aa1-9887-104402625ecb)
-초기 세팅값(id, level, gold)과 함께, 상태(status) 버튼과 인벤토리(Inventory) 버튼이 구현되어 있다.
+초기 세팅값(id, level, gold)과 함께, 상태(status) 버튼과 인벤토리(Inventory) 버튼이 구현되어 있다.  
 
 상태 화면
 ![image](https://github.com/user-attachments/assets/5854b35b-7847-498a-b737-18e5650b8f28)
