@@ -1,62 +1,31 @@
-# Unity UI 프로젝트 가이드
+# Unity 인벤토리 만들기 과제
+내일배움캠프 심화과제 개인프로젝트
 
 ## 프로젝트 개요
-본 프로젝트는 Unity의 UGUI 시스템을 활용하여 메인 메뉴, 상태(Status) 화면, 인벤토리(Inventory) 화면을 구성하고, UI 간 전환 기능을 구현하는 것을 목표로 합니다.
+> Unity 2D로 개발한 인벤토리
+> 메인 메뉴, 상태(Status) 화면, 인벤토리(Inventory) 화면, UI 간 전환 기능 등을 구현
 
-## 프로젝트 구조
-```
-- Scripts
-    - GameManager.cs
-    - UIManager.cs
-    - UIMainMenu.cs
-    - UIStatus.cs
-    - UIInventory.cs
-    - ItemSlot.cs
-    - ItemData.cs
-    - ItemButton.cs
-    - Character.cs
-- UI
-    - UIMainMenu (Canvas)
-    - UIStatus (Canvas)
-    - UIInventory (Canvas)
-    - UISlot (Prefab)
-```
+## 주요 기능
+메인 화면
+![image](https://github.com/user-attachments/assets/0c2d9780-1c6d-4aa1-9887-104402625ecb)
+초기 세팅값(id, level, gold)과 함께, 상태(status) 버튼과 인벤토리(Inventory) 버튼이 구현되어 있다.
 
-## STEP 1. UI 구성하기
-### 목표: **UGUI를 활용해 UIMainMenu, UIStatus, UIInventory UI를 구성**
-1. **UIMainMenu (Canvas)**
-   - 아이디, 레벨, 골드 표시
-   - Status 버튼 → Status 화면으로 이동
-   - Inventory 버튼 → Inventory 화면으로 이동
-2. **UIStatus (Canvas)**
-   - 캐릭터 정보 표시
-   - 뒤로가기 버튼 → 메인 화면으로 이동
-3. **UIInventory (Canvas)**
-   - 인벤토리 아이템 표시
-   - 장착된 아이템 정보 표시
-   - 뒤로가기 버튼 → 메인 화면으로 이동
+상태 화면
+![image](https://github.com/user-attachments/assets/5854b35b-7847-498a-b737-18e5650b8f28)
+공격력, 방어력, 체력, 치명타 각각의 수치의 기본값이 표시되어 있다.
+뒤로 가기 버튼을 누르면 메인 화면으로 돌아간다.
 
-## STEP 2. 스크립트 만들기
-### 목표: **UIManager와 Character 클래스를 생성하고, 필요한 스크립트 작성**
-1. **필요한 스크립트 생성**
-   - `GameManager`
-   - `UIManager`
-   - `UIMainMenu`
-   - `UIStatus`
-   - `UIInventory`
-   - `Character`
-   - `Item`
-2. **UIManager에 [SerializedField] 활용하여 UI 연결**
-3. **Character 클래스에 캐릭터 데이터 작성 (필드 및 생성자 포함)**
+인벤토리 화면
+![image](https://github.com/user-attachments/assets/29c67206-daef-459f-b0e9-44ebf163d1b2)
+인벤토리에 슬롯이 20개 초기 생성되며 아이템이 추가되면 동적 생성되도록 구현하였다.
+위와 같이 칼/방패/먹을 것으로 장착 및 해제가능하다. 
 
-## STEP 3. UI 간 전환 기능 만들기
-### 목표: **UIManager를 통해 UI 간 전환 기능 구현**
-1. `UIMainMenu`에서 `OpenMainMenu()`, `OpenStatus()`, `OpenInventory()` 메서드 추가
-2. `UIManager` 싱글톤 패턴 적용 및 UI 접근 프로퍼티 생성
-3. `UIMainMenu`에서 버튼 클릭 시 UI 전환 기능 구현
-4. `Start()`에서 `AddListener()`를 활용하여 버튼 기능 추가
+![image](https://github.com/user-attachments/assets/6aa2d1a5-0836-48d3-b48b-39d337e3b4a9)
+장착한 장비에 따라 스테이터스 창 역시 변화한다.
+장비에 따른 스탯 수치(공격력, 방어력, 치명타 등)를 변화시키고 싶을 경우, ScriptableObject로 관리하면 된다.
 
-## STEP 4. 캐릭터 정보 세팅하기
-### 목표: **캐릭터 정보가 UI에 표시되도록 구현**
-1. `Character` 클래스 필드를 `{ get; private set; }`으로 설정
-2. `UIMainMenu`, `UIStatus
+## 라이선스
+| 에셋 이름     |출처| 라이선스        |
+|:-----------:|:---:|:-------------:|
+|Sprout Lands - UI Pack by Cup Nooble|https://cupnooble.itch.io/sprout-lands-ui-pack|Free|
+|Pixel Art Icon Pack - RPG|https://assetstore.unity.com/packages/2d/gui/icons/pixel-art-icon-pack-rpg-158343|Free|
