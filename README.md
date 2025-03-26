@@ -7,7 +7,7 @@
 
 ## 주요 기능
 메인 화면  
-![image](https://github.com/user-attachments/assets/0c2d9780-1c6d-4aa1-9887-104402625ecb)
+![image](https://github.com/user-attachments/assets/0c2d9780-1c6d-4aa1-9887-104402625ecb)  
 초기 세팅값(id, level, gold)과 함께, 상태(status) 버튼과 인벤토리(Inventory) 버튼이 구현되어 있다.  
 
 상태 화면
