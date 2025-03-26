@@ -21,11 +21,13 @@ public class ItemButton : MonoBehaviour
         itemApple.onClick.AddListener(() => OnClickItem(apple));
     }
 
-    public void OnClickItem(ItemData itemData) // 클릭을 하면 ItemSlot에 장착되었다고 신호가 들어감
+    public void OnClickItem(ItemData itemData) // 클릭을 하면 인벤토리에 장착되었다고 신호가 들어감
     {
         if (itemData == null) return;
 
-        uiInventory.AddItemToSlot(itemData);
+        ItemInfo nowItem = new ItemInfo();
+        nowItem.targetItem = itemData;
+        uiInventory.AddItem(nowItem);
     }
 
 }

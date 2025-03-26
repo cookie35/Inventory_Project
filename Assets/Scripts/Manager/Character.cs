@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class Character : MonoBehaviour
 {
@@ -7,7 +8,7 @@ public class Character : MonoBehaviour
     public int level { get; set; }
     public int gold { get; set; }
 
-    // 기본 스탯
+    // 기본 스탯 (리스트 문으로 바꾸면 축약 가능, 스탯을 enum으로 만드는 식으로 시도해볼 예정. 시간관계상 생략)
     public int baseAttack;
     public int baseShield;
     public int baseCriticalHit;
@@ -19,10 +20,35 @@ public class Character : MonoBehaviour
     public int bonusHealth; // 소비 아이템 섭취 후 증가된 수치
 
     // 인벤토리 시스템
-    public List<ItemInfo> Inventory { get; set; }  // 아이템을 얻으면 이 리스트에 추가하게끔
+    public List<ItemInfo> itemList { get; set; } = new List<ItemInfo>();  // 아이템을 얻으면 이 리스트에 추가하게끔
     public ItemInfo EquippedItem;  // 현재 장착 아이템
     public UiStatus status;
     public UiInventory inventory;
+
+    public void AddItem(ItemInfo nowItem)  // 빈 슬롯에 아이템 추가, CHARACTER
+    {
+        if (itemList.Count >= inventory.initialSlotCount)
+        {
+        return;
+        }
+
+        nowItem.isEquipped = false;
+        itemList.Add(nowItem);
+        inventory.AddItem(nowItem);
+    }
+
+    public void RemoveItem(ItemSlot itemSlot)
+    {
+        if (itemSlot == null)
+        {
+            return;
+        }
+
+        itemList.Remove(itemSlot.nowItem);
+        itemSlot.nowItem = null;
+        itemSlot.RefreshUI();
+        inventory.UpdateSlotCountTxt();
+    }
 
     public void Equip(ItemInfo item)  // 아이템 장착 메서드
     {

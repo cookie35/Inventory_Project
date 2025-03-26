@@ -12,8 +12,6 @@ public class ItemSlot : MonoBehaviour
 
     public ItemInfo nowItem;
     public UiInventory inventory;
-    public Character character;
-    public UiStatus status;
 
     public void Start()
     {        
@@ -29,11 +27,9 @@ public class ItemSlot : MonoBehaviour
 
     }
 
-    public void SetItem(ItemData itemData)  // 아이템을 슬롯에 추가
+    public void SetSlot(ItemInfo itemInfo)  // 아이템을 슬롯에 추가
     {
-        nowItem = new ItemInfo();
-        nowItem.targetItem = itemData;
-        nowItem.isEquipped = false;
+        nowItem = itemInfo;
         RefreshUI();
     }
 
@@ -54,37 +50,9 @@ public class ItemSlot : MonoBehaviour
         outline.enabled = nowItem.isEquipped;  
     }
 
-    public void UseItem()
+    public void UseItem()  // 아이템을 사용해줘라는 요청만.
     {
-        if (nowItem == null) return;
-
-        if (nowItem.IsEquipable())
-        {
-            if (nowItem.isEquipped)
-            {
-                character.UnEquip(nowItem); // 장착 해제
-                nowItem.isEquipped = false;
-                status.UpdateStatus(nowItem, character);
-            }
-            else
-            {
-                character.Equip(nowItem); // 장착 요청
-                nowItem.isEquipped = true;
-                status.UpdateStatus(nowItem, character);
-            }
-        }
-
-        if (nowItem.IsConsumable())
-        {
-            character.Heal(nowItem);
-            status.UpdateStatus(nowItem, character);  // 소비 아이템 사용 후 상태 업데이트
-
-            nowItem = null; // 아이템 소비 후 삭제
-            inventory.filledSlotCount--;
-            inventory.UpdateSlotCountTxt();
-        }
-
-        RefreshUI();
+        inventory.UseItem(this);
     }
 
 }
